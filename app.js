@@ -8,7 +8,8 @@ var express = require('express'),
     passportLocalMongoose = require('passport-local-mongoose')
 
 //APP CONFIG
-mongoose.connect('mongodb://localhost/task_manager', { useNewUrlParser: true });
+//mongoose.connect('mongodb://localhost/task_manager', { useNewUrlParser: true });
+mongoose.connect('mongodb://vitaliy:cloud1@ds145438.mlab.com:45438/task_manager', { useNewUrlParser: true });
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
@@ -280,6 +281,9 @@ function checkTaskOwnership(req, res, next) {
     }
 }
 
-app.listen(3000, function() {
-    console.log('server has been started!');
-});
+// app.listen(3000, function() {
+//     console.log('server has been started!');
+// });
+app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("server started");
+})
