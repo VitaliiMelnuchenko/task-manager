@@ -1,0 +1,51 @@
+.task-done {
+    font-size: 1.5em;  
+    opacity: 0.6;
+    color: green;
+}
+
+.task-active {
+    font-size: 1.5em;  
+    opacity: 0.6;
+    color: #555;
+}
+
+.status-icon {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+.elem {
+    
+    text-decoration: none;
+    color: #000;
+}
+
+/* .row-striped:nth-of-type(odd){
+    background-color: #efefef;
+    border-left: 4px #000000 solid;
+  }
+  
+  .row-striped:nth-of-type(even){
+    background-color: #ffffff;
+    border-left: 4px #efefef solid;
+  }
+  
+  .row-striped {
+      padding: 15px 0;
+  } */
+
+.sector {
+    border: 1px solid rgba(220, 220, 220, 0.5);
+    border-radius: 10px;
+    background-color: #fefefe;
+    padding: 1em
+}
+
+.width50 {
+    width: 50%;
+}
+
+#body {
+    background-color: rgba(220, 220, 220, 0.2);
+}

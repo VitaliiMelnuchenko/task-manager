@@ -1,0 +1,19 @@
+<% include template/header %>
+
+    <div class="container width50 sector">
+        <h1>Register form</h1>
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" name="username" class="form-control" id="Email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" pattern=".{6, 30}" name="password" class="form-control" id="password" placeholder="Password" title="from 6 to 30 characters" required>
+            </div>
+            <button class="btn btn-success">Register</button>
+            <a href="/task" class="btn btn-primary">Back</a>
+        </form>
+    </div>
+
+<% include template/footer %>

@@ -1,0 +1,61 @@
+<% include template/header %>
+
+    <div class="container">
+        
+        <div class="container sector">
+            <% if (!curentUser) { %>
+
+            <div class="jumbotron jumbotron-fluid p-3 mb-0">
+                <div class="container">
+                    <h1 class="display-4 text-center">Planning simplifies the workflow</h1>
+                    <p class="lead text-center">To-do list lets you keep track of everything in one place. It's the easiest way to get stuff done.</p>
+                    <div class="d-flex justify-content-center">
+                        <a class="btn btn-primary mt-3" href="/login">Get it started</a>
+                    </div>
+                </div>
+            </div>
+
+            <% } else { %>
+
+            <div class="list-group">
+                <% tasks.reverse().forEach(elem => { %>
+                    
+                    <a href="/task/<%= elem._id %>" class="list-group-item list-group-item-action">
+                        <div class="row">
+                            <div style="vertical-align: middle" class="col-xs-12 col-md-6">
+                                <form action="/finished/<%= elem._id %>" method="POST" class="d-inline mr-3">
+                                    <button class="p-0 status-icon">
+                                        <% if (elem.isFinished) { %>
+                                            <i class="task-done fas fa-check-circle"></i>
+                                        <% } else { %>
+                                            <i class="far fa-circle task-active"></i>
+                                        <% } %>
+                                    </button>
+                                </form>
+                                <%= elem.task_content.substr(0, 50) %> 
+                            </div>
+                            <div class="col-xs-12 col-md-6 justify-content-end d-flex">
+                                <% if (elem.author === curentUser.username) { %>
+
+                                <% } else { %> 
+                                    <span class="mr-2">Added by:  <%= elem.author.substr(0, 25) %> </span> 
+                                <% } %>
+                                <form  method="LINK" action="/task/<%= elem._id %>/edit">
+                                    <button style="color: #fff" type="submit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                                </form>
+                                <form class="ml-2" action="/task/<%= elem._id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </a>
+                   
+                <% }); %>
+            </div>
+            <a class="btn btn-primary mt-3" href="/task/new">Add task</a>
+
+            <% } %>
+        </div>
+    </div>
+
+<% include template/footer %>    

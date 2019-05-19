@@ -1,0 +1,31 @@
+<% include template/header %>
+	
+	<div class="container sector p-5 width50">
+        <div>
+
+            <div class="row row-striped">
+                
+                <div class="col-12">
+                    <h3 class="text-uppercase"><strong><%= task.task_content %></strong></h3>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= task.deadline.substr(task.deadline.indexOf(' ')) %></li>
+                        <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> <%= task.deadline.substr(0, task.deadline.indexOf(' ')) %></li>
+                        <li class="list-inline-item"><i class="fa fa-flag" aria-hidden="true"></i> <%= task.priority %></li>
+                    </ul>
+                    <p><%= task.description %></p>
+                </div>
+            </div>
+            
+            <form class="form-inline mb-3" action="/share/<%= task._id %>" method="POST">
+                <label for="shareWith">Share with:&nbsp; </label>
+                <input type="text" name="username" class="form-control mr-sm-2" id="shareWith" placeholder="Email">
+                <button class="btn btn-info">Share</button>
+            </form>
+            <a class="btn btn-warning" href="/task/<%= task._id %>/edit">Edit</a>
+            <a href="/task" class="btn btn-primary">Back</a>
+        
+        </div>
+
+	</div>
+
+<% include template/footer %>

@@ -1,0 +1,52 @@
+<% include template/header %>
+
+    <div class="container sector width50" style="width: 50%">
+        <div class="container smal">
+            <form action="/task" method="POST">
+                <div class="form-group">
+                    <label for="task">Task</label>
+                    <input type="text" name="task[task_content]" class="form-control" id="task" placeholder="Task" required>
+                </div>
+                 <div class="form-row">
+                    <div class="form-group col-md-10">
+                        <label for="">Deadline</label>
+                        <div class="form-row align-items-center">
+                                
+                                <div class="col-sm-2">
+                                    <input type="number" min="0" max="23" step="1" name="hour" class="form-control" id="Deadline" placeholder="hh" required>
+                                </div> :
+                                <div class="col-sm-2 mr-1">
+                                    <input type="number" min="0" max="59" step="1" name="minute" class="form-control" id="Deadline" placeholder="mm" required>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="number" min="1" max="31" step="1" name="day" class="form-control" id="Deadline" placeholder="day" required>
+                                </div> /
+                                <div class="col-sm-2">
+                                    <input type="number" min="1" max="12" step="1" name="month" class="form-control" id="Deadline" placeholder="month" required>
+                                </div> /
+                                <div class="col-sm-2">
+                                    <input type="number" min="2019" max="2099" step="1" name="year" class="form-control" id="Deadline" placeholder="year" required>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="Priority">Priority</label>
+                        <select name="task[priority]" class="custom-select mr-sm-2" id="Priority">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Description</label>
+                    <textarea class="form-control" name="task[description]" id="exampleFormControlTextarea1" rows="3" maxlength="500"></textarea>
+                </div>
+                <button class="btn btn-success">Create</button>
+                <a class="btn btn-primary" href="/">Back</a>
+            </form>
+        </div>
+    </div>
+
+<% include template/footer %>
